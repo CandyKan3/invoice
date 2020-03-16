@@ -30,6 +30,7 @@ class Invoice:
             if userInput in ['v','n']:
                 return userInput
             print('y or n! Try again.')
+
     def inputNumber(self, input_value):
         while True:
             try:
@@ -39,4 +40,7 @@ class Invoice:
                 continue
             else:
                 return userInput
+    def clearProducts(self, products):
+        self.items = {}
+        return self.items
 

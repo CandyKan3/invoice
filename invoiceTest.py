@@ -8,6 +8,9 @@ def products():
 def invoice():
     invoice = Invoice()
     return invoice
+def test_canAddProduct(invoice, products):
+    invoice.addProduct(10, 20, 10)
+    assert invoice.items == {'discount': 10, 'qnt': 10, 'unit_price': 20}
 
 def test_CanCalculateImpurePrices(invoice, products):
 
@@ -20,4 +23,8 @@ def test_canCalculateTotalDiscount(invoice ,products):
 def test_canCalculateTotalPurePrices(invoice ,products):
     invoice.totalPurePrice(products)
     assert invoice.totalPurePrice(products) == 69.38
+def test_clearProducts(invoice, products):
+    invoice.addProduct(10, 20, 10)
+    assert invoice.items == {'discount': 10, 'qnt': 10, 'unit_price': 20}
+    assert invoice.clearProducts(products) =={}
 
